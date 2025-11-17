@@ -1,0 +1,7 @@
+{
+  "profile": [
+    { "id": "1", "name": "John Doe", "picture": "pic1.jpg" },
+    { "id": "2", "name": "Jane Doe", "picture": "pic2.jpg" },
+    { "id": "3", "name": "Julio Doe" }
+  ]
+}
