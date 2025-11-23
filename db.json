@@ -107,5 +107,14 @@
       }
     ],
     "copyright": "© 2025 CartaAI. Semua hak dilindungi."
-  }
+  },
+  "users": [
+    {
+      "id": "efd3",
+      "name": "julio",
+      "email": "julio@gmail.com",
+      "password": "11111111",
+      "subscription_status": "premium"
+    }
+  ]
 }
