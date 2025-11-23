@@ -116,5 +116,92 @@
       "password": "11111111",
       "subscription_status": "premium"
     }
-  ]
+  ],
+  "tentang": {
+    "pageDescription": "cartaAI hadir untuk membantu pasangan calon pengantin menciptakan undangan pernikahan yang personal, elegan, dan unik — dengan kekuatan AI yang dipadukan dengan sentuhan manusiawi. Kami percaya: setiap kisah cinta layak diabadikan dalam undangan yang tak terlupakan.",
+    "visionMission": [
+      {
+        "title": "Visi Kami",
+        "icon": "visibility",
+        "gradient": "from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400",
+        "desc": "Menjadi solusi terdepan untuk undangan pernikahan digital yang menggabungkan keindahan desain, personalisasi mendalam, dan kecanggihan AI — tanpa kompromi pada makna."
+      },
+      {
+        "title": "Misi Kami",
+        "icon": "flag",
+        "gradient": "from-purple-600 to-indigo-600",
+        "desc": "Memberikan pengalaman pembuatan undangan dalam 3 menit, desain eksklusif (bukan template), dan pilihan digital/cetak premium yang ramah lingkungan."
+      }
+    ],
+    "whyUs": [
+      {
+        "icon": "bolt",
+        "title": "⚡ Cepat & Hemat",
+        "desc": "Dari ide ke undangan siap kirim hanya dalam hitungan menit — tanpa biaya cetak berlebihan."
+      },
+      {
+        "icon": "brush",
+        "title": "🎨 Desain Unik",
+        "desc": "AI kami belajar dari ribuan desain premium untuk menghasilkan karya yang benar-benar orisinal."
+      },
+      {
+        "icon": "account_circle",
+        "title": "❤️ Personalisasi",
+        "desc": "Setiap detail — dari font hingga ilustrasi — mencerminkan kepribadian dan kisah Anda."
+      }
+    ],
+    "howItWorks": [
+      {
+        "step": 1,
+        "icon": "palette",
+        "title": "Pilih Tema",
+        "description": "Klasik, modern, rustic, atau custom sesuai selera."
+      },
+      {
+        "step": 2,
+        "icon": "text_fields",
+        "title": "Masukkan Detail",
+        "description": "Nama pasangan, tanggal, lokasi, dan pesan spesial."
+      },
+      {
+        "step": 3,
+        "icon": "auto_awesome",
+        "title": "AI Generate",
+        "description": "AI merancang undangan berdasarkan preferensi Anda."
+      },
+      {
+        "step": 4,
+        "icon": "share",
+        "title": "Bagikan",
+        "description": "Undangan digital siap dikirim atau dicetak."
+      }
+    ],
+    "teamMembers": [
+      {
+        "name": "Alvito",
+        "role": "Project Manager",
+        "image": "/assets/vito.jpg",
+        "bio": "Visioner di balik cartaAI."
+      },
+      {
+        "name": "Adriel",
+        "role": "Lead Developer & AI Specialist",
+        "image": "/assets/adriel.jpg",
+        "bio": "Memimpin pengembangan solusi berbasis AI yang menyatukan kecerdasan mesin dengan pengalaman pengguna yang intuitif dan responsif.",
+        "isLead": true
+      },
+      {
+        "name": "Julio",
+        "role": "AI Specialist & Backend Developer",
+        "image": "/assets/julio.jpg",
+        "bio": "Sebagai AI Specialist dan Backend Developer, saya berfokus merancang sistem cerdas yang scalable dan siap menghadirkan pengalaman real-time yang optimal."
+      },
+      {
+        "name": "Timothy",
+        "role": "UI/UX & Frontend Developer",
+        "image": "/assets/timo.jpg",
+        "bio": "Menciptakan pengalaman digital yang intuitif dan estetis, di mana setiap interaksi terasa alami dan bermakna."
+      }
+    ]
+  }
 }
