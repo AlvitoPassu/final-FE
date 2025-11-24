@@ -193,7 +193,12 @@
       }
     ],
     "teamMembers": [
-
+      {
+        "name": "Alvito",
+        "role": "Project Manager",
+        "image": "/assets/vito.jpg",
+        "bio": "Visioner di balik cartaAI."
+      },
       {
         "name": "Adriel",
         "role": "Lead Developer & AI Specialist",
@@ -206,6 +211,12 @@
         "role": "AI Specialist & Backend Developer",
         "image": "/assets/julio.jpg",
         "bio": "Sebagai AI Specialist dan Backend Developer, saya berfokus merancang sistem cerdas yang scalable dan siap menghadirkan pengalaman real-time yang optimal."
+      },
+      {
+        "name": "Timo",
+        "role": "Frontend Developer & UX Designer",
+        "image": "/assets/timo.jpg",
+        "bio": "Menggabungkan keahlian dalam pengembangan frontend dan desain UX untuk menciptakan antarmuka yang menarik, intuitif, dan responsif bagi pengguna."
       }
     ]
   },
