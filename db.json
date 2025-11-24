@@ -1,5 +1,5 @@
 {
-    "navLinks": [
+  "navLinks": [
     {
       "to": "/",
       "text": "Beranda"
@@ -116,5 +116,6 @@
       "password": "11111111",
       "subscription_status": "premium"
     }
-  ]
+  ],
+  "invitations": []
 }
