@@ -194,9 +194,9 @@
     ],
     "teamMembers": [
       {
-        "name": "Prince",
+        "name": "Alvito",
         "role": "Project Manager",
-        "image": "/assets/prince.jpg",
+        "image": "/assets/vito.jpg",
         "bio": "Visioner di balik cartaAI."
       },
       {
@@ -213,16 +213,10 @@
         "bio": "Sebagai AI Specialist dan Backend Developer, saya berfokus merancang sistem cerdas yang scalable dan siap menghadirkan pengalaman real-time yang optimal."
       },
       {
-        "name": "Adith",
-        "role": "UI/UX & Frontend Developer",
-        "image": "/assets/adith.jpg",
-        "bio": "Menciptakan pengalaman digital yang intuitif dan estetis, di mana setiap interaksi terasa alami dan bermakna."
-      },
-      {
-        "name": "Andro",
-        "role": "Marketing Manager",
-        "image": "/assets/sandro.jpg",
-        "bio": "Menciptakan strategi pemasaran yang menggabungkan kreativitas dan analisis untuk hasil yang nyata dan berkelanjutan."
+        "name": "Timo",
+        "role": "Frontend Developer & UX Designer",
+        "image": "/assets/timo.jpg",
+        "bio": "Menggabungkan keahlian dalam pengembangan frontend dan desain UX untuk menciptakan antarmuka yang menarik, intuitif, dan responsif bagi pengguna."
       }
     ]
   },
