@@ -1,35 +1,63 @@
-//Component adalah function yg return JSX
-//JSX hanya boleh memiliki 1 parent element
-import React, { useState } from "react";
-import HelloWorld from "./HelloWorld";
+import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import Testimonials from './components/Testimonials';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Template from './pages/Template';
+import Harga from './pages/Harga';
+import Tentang from './pages/Tentang';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import PremiumGenerator from './pages/PremiumGenerator';
 
-const App = () => {
-  // let hello = "Hello World"; // Ini variabel biasa
-  const [hello, setHello] = useState("Hello World!!!"); //Ini variabel state
+import { AuthProvider } from './context/AuthContext';
+import { DarkModeProvider } from './context/DarkModeContext';
 
-  const handleClick = () => {
-    console.log("button di klik");
-    // hello = "Selamat Datang"; //ini cara merubah variabel biasa
-    setHello("Selamat Datang"); //ini cara merubah variabel state
-    console.log(hello);
-  };
+import ForgotPassword from './pages/ForgotPassword';
+import UpdatePassword from './pages/UpdatePassword';
+
+import PaymentStatus from './pages/PaymentStatus';
+import Profile from './pages/Profile';
+import Invitation from './pages/Invitation';
+
+const MainLayout = () => (
+  <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-white dark:bg-gray-900 transition-colors duration-300">
+    <Navbar />
+    <main className="grow pt-16 md:pt-20">
+      <Outlet />
+    </main>
+    <Footer />
+  </div>
+);
+
+function App() {
   return (
-    <>
-      <div className="text-[50px] bg-blue-500 m-10 p-10 font-serif">
-        {hello}
-      </div>
-      <HelloWorld
-        text="This is a child component 1"
-        handleClick={handleClick}
-      />
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={handleClick}
-      >
-        Click Me
-      </button>
-    </>
+    <Router>
+      <DarkModeProvider>
+        <AuthProvider>
+          <Routes>
+            <Route element={<MainLayout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/template" element={<Template />} />
+              <Route path="/harga" element={<Harga />} />
+              <Route path="/tentang" element={<Tentang />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/update-password" element={<UpdatePassword />} />
+              <Route path="/premium-generator" element={<PremiumGenerator />} />
+
+              <Route path="/payment-status" element={<PaymentStatus />} />
+              <Route path="/profile" element={<Profile />} />
+            </Route>
+            <Route path="/invitations/:slug" element={<Invitation />} />
+          </Routes>
+        </AuthProvider>
+      </DarkModeProvider>
+    </Router>
   );
-};
+}
 
 export default App;

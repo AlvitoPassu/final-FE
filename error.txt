@@ -1,0 +1,10 @@
+	<Routes>		
+App	@	App.jsx:23
+<App>		
+(anonymous)	@	main.jsx:9
+
+App.jsx:23 No routes matched location "/" 
+<Routes>		
+App	@	App.jsx:23
+<App>		
+(anonymous)	@	main.jsx:9
