@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import axios from "axios";
 
 function Hero() {
+    const { session, userProfile } = useAuth();
     const [hero, setHero] = useState({});
 
     useEffect(() => {
@@ -19,9 +21,9 @@ function Hero() {
         <section className="bg-linear-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-16 px-6 relative overflow-x-hidden transition-colors duration-300">
 
         <div className="container mx-auto max-w-7xl relative z-10">
-            <div className="flex flex-row items-center gap-12 lg:gap-16">
+            <div className="flex flex-row items-center gap-12 lg:gap-16"> 
             <div className="flex-1 text-center lg:text-left space-y-6">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-buattight text-gray-900 dark:text-white">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white">
                 {hero.title && hero.title.split('Pernikahan').map((part, index, array) => 
                     index === array.length - 1 ? part : (
                     <React.Fragment key={index}>
@@ -39,7 +41,7 @@ function Hero() {
 
                 {/* Tombol Aksi */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-6">
-                {/* {userProfile?.subscription_status === 'premium' ? (
+                {userProfile?.subscription_status === 'premium' ? (
                     <Link
                     to="/premium-generator"
                     className="px-8 py-3 rounded-xl font-semibold text-white shadow-md transition-all duration-300"
@@ -101,7 +103,7 @@ function Hero() {
                         {hero.button1_guest}
                     </Link>
                     )
-                )} */}
+                )}
                 <a
                     href="/template"
                     className="border-2 border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 px-8 py-3 rounded-xl font-semibold shadow-md transition-all duration-300 flex items-center justify-center gap-2"
@@ -139,8 +141,6 @@ function Hero() {
                     e.target.style.display = 'block';
                     }}
                 />
-                {/* Overlay semi-transparent - now with lower z-index to be behind the image */}
-                <div className="absolute inset-0 bg-black bg-opacity-10 group-hover:bg-opacity-20 transition-opacity duration-300 z-0"></div>
                 </div>
             </div>
             </div>
