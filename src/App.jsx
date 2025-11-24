@@ -5,10 +5,12 @@ import Features from './components/Features';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-
+import Template from './pages/Template';
+import Harga from './pages/Harga';
 import Tentang from './pages/Tentang';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import PremiumGenerator from './pages/PremiumGenerator';
 
 import { AuthProvider } from './context/AuthContext';
 import { DarkModeProvider } from './context/DarkModeContext';
@@ -16,7 +18,9 @@ import { DarkModeProvider } from './context/DarkModeContext';
 import ForgotPassword from './pages/ForgotPassword';
 import UpdatePassword from './pages/UpdatePassword';
 
+import PaymentStatus from './pages/PaymentStatus';
 import Profile from './pages/Profile';
+import Invitation from './pages/Invitation';
 
 const MainLayout = () => (
   <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-white dark:bg-gray-900 transition-colors duration-300">
@@ -36,14 +40,19 @@ function App() {
           <Routes>
             <Route element={<MainLayout />}>
               <Route path="/" element={<Home />} />
+              <Route path="/template" element={<Template />} />
+              <Route path="/harga" element={<Harga />} />
               <Route path="/tentang" element={<Tentang />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/update-password" element={<UpdatePassword />} />
+              <Route path="/premium-generator" element={<PremiumGenerator />} />
 
+              <Route path="/payment-status" element={<PaymentStatus />} />
               <Route path="/profile" element={<Profile />} />
             </Route>
+            <Route path="/invitations/:slug" element={<Invitation />} />
           </Routes>
         </AuthProvider>
       </DarkModeProvider>
