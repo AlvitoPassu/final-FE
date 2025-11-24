@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { useDarkMode } from "../context/DarkModeContext";
 import axios from "axios";
 
 function Navbar() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [navLinks, setNavLinks] = useState([]);
+    const { session, logout, userProfile } = useAuth();
+    const { darkMode, toggleDarkMode } = useDarkMode();
+    const navigate = useNavigate();
     const location = useLocation();
 
     useEffect(() => {
@@ -15,6 +21,11 @@ function Navbar() {
             console.error('There was an error fetching the nav links!', error);
         });
     }, []);
+
+    const handleLogout = async () => {
+        await logout();
+        navigate("/");
+    };
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-md border-b border-gray-200/50 dark:border-gray-700/50 transition-colors duration-300">
@@ -50,17 +61,16 @@ function Navbar() {
             <div className="hidden items-center gap-3 md:flex">
             {/* Dark Mode Toggle */}
             <button
-                // onClick={}
+                onClick={toggleDarkMode}
                 className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                 aria-label="Toggle Dark Mode"
             >
-                {/* <span className="material-symbols-outlined text-gray-700 dark:text-gray-300">
+                <span className="material-symbols-outlined text-gray-700 dark:text-gray-300">
                 {darkMode ? "light_mode" : "dark_mode"}
-                </span> */}
+                </span>
             </button>
 
-            {/* User profile(auth) */}
-            {/* {userProfile?.subscription_status === "premium" && (
+            {userProfile?.subscription_status === "premium" && (
                 <Link
                 to="/premium-generator"
                 className="bg-linear-to-r from-yellow-400 to-orange-500 text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md transition-all duration-300 transform hover:scale-105"
@@ -90,9 +100,95 @@ function Navbar() {
                     Daftar
                 </Link>
                 </>
-            )} */}
+            )}
+            </div>
+
+            <div className="flex items-center gap-2 md:hidden">
+            {/* Dark Mode Toggle Mobile */}
+            <button
+                onClick={toggleDarkMode}
+                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                aria-label="Toggle Dark Mode"
+            >
+                <span className="material-symbols-outlined text-gray-700 dark:text-gray-300">
+                {darkMode ? "light_mode" : "dark_mode"}
+                </span>
+            </button>
+
+            <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
+                <span className="material-symbols-outlined text-gray-700 dark:text-gray-300">
+                {isMenuOpen ? "close" : "menu"}
+                </span>
+            </button>
             </div>
         </nav>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+            <div className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-t border-gray-200/50 dark:border-gray-700/50 shadow-md transition-colors duration-300">
+            <div className="container mx-auto px-6 py-4">
+                <div className="flex flex-col gap-4">
+                {/* Navigation Links */}
+                {navLinks.map((link) => (
+                    <Link
+                    key={link.to}
+                    className={`${
+                        location.pathname === link.to
+                        ? "text-blue-800 dark:text-indigo-400"
+                        : "text-gray-900 dark:text-gray-100 hover:text-blue-700 dark:hover:text-indigo-400"
+                    } text-sm font-medium transition-colors`}
+                    to={link.to}
+                    onClick={() => setIsMenuOpen(false)}
+                    >
+                    {link.text}
+                    </Link>
+                ))}
+
+                {/* Auth buttons for Mobile */}
+                <div className="flex flex-col gap-2 mt-4 border-t pt-4">
+                    {userProfile?.subscription_status === "premium" && (
+                    <Link
+                        to="/premium-generator"
+                        className="bg-linear-to-r from-yellow-400 to-orange-500 text-white px-4 py-2 rounded-lg font-bold text-sm shadow-md transition-all duration-300 transform hover:scale-105 text-center block"
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        Premium Generator
+                    </Link>
+                    )}
+                    {session ? (
+                    <Link
+                        to="/profile"
+                        className="bg-linear-to-r from-indigo-500 to-purple-600 text-white hover:from-purple-600 hover:to-indigo-500 transition-all duration-300 rounded-lg px-4 py-2 text-sm font-bold text-center block"
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        Profil
+                    </Link>
+                    ) : (
+                    <>
+                        <Link
+                        to="/login"
+                        className="bg-linear-to-r from-indigo-500 to-purple-600 text-white hover:from-purple-600 hover:to-indigo-500 transition-all duration-300 rounded-lg px-4 py-2 text-sm font-bold text-center block"
+                        onClick={() => setIsMenuOpen(false)}
+                        >
+                        Masuk
+                        </Link>
+                        <Link
+                        to="/register"
+                        className="bg-linear-to-r from-indigo-500 to-purple-600 text-white hover:from-purple-600 hover:to-indigo-500 transition-all duration-300 rounded-lg px-4 py-2 text-sm font-bold text-center block"
+                        onClick={() => setIsMenuOpen(false)}
+                        >
+                        Daftar
+                        </Link>
+                    </>
+                    )}
+                </div>
+                </div>
+            </div>
+            </div>
+        )}
         </header>
     );
 }
