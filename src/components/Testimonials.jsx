@@ -17,6 +17,14 @@ function Testimonials() {
 
     return (
         <section className="py-16 bg-linear-to-br from-indigo-50/20 to-purple-50/10 dark:from-gray-900 dark:to-gray-800 px-4 sm:px-6 lg:px-8 relative overflow-x-hidden" id="testimonials">
+        {/* Subtle noise texture */}
+        <div
+            className="fixed inset-0 opacity-5 dark:hidden pointer-events-none"
+            style={{
+            backgroundImage:
+                "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
+            }}
+        ></div>
 
         <div className="max-w-6xl mx-auto relative z-10">
             <div className="text-center mb-16">
@@ -46,7 +54,7 @@ function Testimonials() {
 
                 <div className="relative z-10">
                     {/* Quote icon */}
-                    <div className="w-12 h-12 rounded-xl dark bg-gray-800 flex items-center justify-center mb-4 shadow-md bg-linear-to-br from-indigo-500 to-purple-500 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 rounded-xl dark:bg-gray-800 flex items-center justify-center mb-4 shadow-md bg-linear-to-br from-indigo-500 to-purple-500 group-hover:scale-110 transition-transform">
                     <span className="material-symbols-outlined text-white text-xl">
                         format_quote
                     </span>
@@ -56,7 +64,7 @@ function Testimonials() {
                     {testimonial.text}
                     </p>
 
-                    <div className="flex items-center gap-4 pt-4 border-t dark border-gray-100">
+                    <div className="flex items-center gap-4 pt-4 border-t dark:border-gray-700 border-gray-100">
                     <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0">
                         <div
                         className="absolute inset-0 rounded-full"
